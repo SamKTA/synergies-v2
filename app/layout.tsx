@@ -10,14 +10,17 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
-      <body className="min-h-dvh bg-[rgb(var(--bg))] text-[rgb(var(--fg))]">
-        {/* Barre de navigation */}
-        <header className="sticky top-0 z-50 border-b border-orange-100 bg-white/70 backdrop-blur">
-          <div className="container mx-auto max-w-7xl px-6 py-4 flex items-center justify-between">
-            <Link href="/" className="text-lg font-bold text-orange-600">
+      <body className="min-h-screen bg-[#FCF9F6] text-gray-900">
+        {/* ===== NAVBAR ===== */}
+        <header className="fixed top-0 left-0 w-full z-50 bg-white/90 backdrop-blur-sm border-b border-orange-100 shadow-sm">
+          <div className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
+            {/* Logo / Titre */}
+            <Link href="/" className="text-xl font-bold text-orange-600 hover:text-orange-500">
               ⚡ Synergies
             </Link>
-            <nav className="hidden md:flex gap-6 text-sm font-medium">
+
+            {/* Navigation */}
+            <nav className="hidden md:flex gap-6 text-sm font-medium text-gray-700">
               <Link href="/inbox" className="hover:text-orange-600">
                 Mes reçues
               </Link>
@@ -31,21 +34,23 @@ export default function RootLayout({ children }: { children: ReactNode }) {
                 Commissions
               </Link>
             </nav>
+
+            {/* Bouton de connexion */}
             <Link
               href="/login"
-              className="rounded-lg border border-orange-200 px-3 py-1.5 text-sm hover:bg-orange-50"
+              className="rounded-lg border border-orange-600 text-orange-600 px-3 py-1.5 text-sm font-medium hover:bg-orange-50 transition"
             >
               Se connecter
             </Link>
           </div>
         </header>
 
-        {/* Contenu principal */}
-        <main className="container mx-auto max-w-7xl px-6">{children}</main>
+        {/* ===== CONTENU ===== */}
+        <main className="pt-28 pb-16">{children}</main>
 
-        {/* Pied de page */}
-        <footer className="mt-20 border-t border-orange-100 text-center py-6 text-sm text-gray-500">
-          © {new Date().getFullYear()} Synergies — V2 — design SaaS
+        {/* ===== FOOTER ===== */}
+        <footer className="mt-16 border-t border-orange-100 bg-orange-50/50 text-center py-6 text-sm text-gray-600">
+          © {new Date().getFullYear()} Synergies V2 — Design SaaS by Samuel KITA
         </footer>
       </body>
     </html>
