@@ -36,4 +36,78 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mt
+            className="mt-8 flex flex-wrap items-center justify-center gap-4"
+          >
+            <Link
+              href="/reco/new"
+              className="rounded-xl bg-pink-600 px-6 py-3 text-white shadow-lg shadow-pink-600/20 transition hover:scale-[1.02] hover:bg-pink-500"
+            >
+              Nouvelle recommandation
+            </Link>
+            <Link
+              href="/inbox"
+              className="rounded-xl border border-white/20 px-6 py-3 transition hover:bg-white/5"
+            >
+              Voir mes synergies
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* GRID de cartes preview — centrée */}
+      <section className="mx-auto mb-16 grid w-full max-w-5xl grid-cols-1 gap-4 md:grid-cols-3">
+        <Card>
+          <h3>Activité récente</h3>
+          <p className="opacity-75">12 recommandations traitées cette semaine.</p>
+        </Card>
+
+        <Card className="bg-gradient-to-br from-pink-500 to-violet-500 text-white shadow-pink-500/20">
+          <h3>Taux de transformation</h3>
+          <p className="text-3xl font-bold">68%</p>
+        </Card>
+
+        <Card>
+          <h3>Top collaborateurs</h3>
+          <ul className="opacity-80 text-sm space-y-1">
+            <li>• Laurie Blondeau</li>
+            <li>• Olivier Schiapparelli</li>
+            <li>• Damien Montastier</li>
+          </ul>
+        </Card>
+
+        <Card>
+          <h3>Recommandations en attente</h3>
+          <p className="opacity-75">5 synergies à prendre en charge.</p>
+        </Card>
+
+        <Card className="bg-gradient-to-br from-violet-500 to-indigo-500 text-white shadow-indigo-500/20">
+          <h3>CA généré</h3>
+          <p className="text-3xl font-bold">42 500 €</p>
+        </Card>
+
+        <Card>
+          <h3>Temps moyen de réponse</h3>
+          <p className="opacity-75">2h 34min</p>
+        </Card>
+      </section>
+    </div>
+  );
+}
+
+function Card({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 12 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.4 }}
+      transition={{ duration: 0.4 }}
+      className={[
+        "rounded-2xl border border-white/10 bg-white/[0.02] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur",
+        "hover:shadow-lg hover:shadow-black/10 transition",
+        className,
+      ].join(" ")}
+    >
+      <div className="[&>h3]:m-0 [&>h3]:text-lg [&>h3]:font-semibold">{children}</div>
+    </motion.div>
+  );
+}
