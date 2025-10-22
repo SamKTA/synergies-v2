@@ -10,31 +10,35 @@ export const metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
-      <body className="min-h-dvh bg-white text-slate-900">
+      <body className="min-h-dvh bg-[rgb(var(--bg))] text-[rgb(var(--fg))]">
         {/* Topbar */}
-        <header className="sticky top-0 z-50 border-b bg-white/80 backdrop-blur">
-          <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-            <Link href="/" className="font-semibold text-slate-900">
+        <header className="sticky top-0 z-50 border-b border-white/10 bg-black/20 backdrop-blur">
+          <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+            <Link href="/" className="font-semibold">
               🎯 Synergies
             </Link>
-            <nav className="hidden gap-6 md:flex">
-              <Link href="/inbox" className="text-sm text-slate-600 hover:text-slate-900">Mes reçues</Link>
-              <Link href="/sent" className="text-sm text-slate-600 hover:text-slate-900">Mes envoyées</Link>
-              <Link href="/reco/new" className="text-sm text-slate-600 hover:text-slate-900">Nouvelle reco</Link>
-              <Link href="/admin/commissions" className="text-sm text-slate-600 hover:text-slate-900">Commissions</Link>
+
+            {/* nav responsive simple */}
+            <nav className="flex gap-5 text-sm">
+              <Link href="/inbox" className="opacity-80 hover:opacity-100">Mes reçues</Link>
+              <Link href="/sent" className="opacity-80 hover:opacity-100">Mes envoyées</Link>
+              <Link href="/reco/new" className="opacity-80 hover:opacity-100">Nouvelle reco</Link>
+              <Link href="/admin/commissions" className="opacity-80 hover:opacity-100">Commissions</Link>
             </nav>
-            <Link href="/login" className="rounded-xl border px-3 py-1.5 text-sm hover:shadow-soft">Se connecter</Link>
+
+            <Link href="/login" className="rounded-xl border border-white/15 px-3 py-1.5 text-sm hover:bg-white/5">
+              Se connecter
+            </Link>
           </div>
         </header>
 
-        {/* Content */}
-        <main className="mx-auto w-full max-w-6xl p-4">
+        {/* Conteneur central commun */}
+        <main className="mx-auto max-w-7xl px-6">
           {children}
         </main>
 
-        {/* Footer */}
-        <footer className="mt-12 border-t">
-          <div className="mx-auto max-w-6xl px-4 py-6 text-xs text-slate-500">
+        <footer className="mt-20 border-t border-white/10">
+          <div className="mx-auto max-w-7xl px-6 py-6 text-xs opacity-70">
             © {new Date().getFullYear()} Synergies — V2
           </div>
         </footer>
