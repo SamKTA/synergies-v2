@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Design tokens additionnels si besoin */
+:root {
+  --bg: 255 255 255;
+  --fg: 15 23 42; /* slate-900 */
+}
+html, body {
+  height: 100%;
+  background: rgb(var(--bg));
+  color: rgb(var(--fg));
+}
