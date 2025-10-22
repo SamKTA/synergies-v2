@@ -2,13 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Design tokens additionnels si besoin */
+/* === Thème global Synergies V2 === */
 :root {
-  --bg: 255 255 255;
-  --fg: 15 23 42; /* slate-900 */
+  --bg: 15 23 42; /* slate-900 (sombre, élégant) */
+  --fg: 255 255 255; /* texte blanc */
+  --accent: 236 72 153; /* rose-500 */
+  --accent-2: 139 92 246; /* violet-500 */
 }
+
 html, body {
   height: 100%;
+  margin: 0;
+  padding: 0;
   background: rgb(var(--bg));
   color: rgb(var(--fg));
+  font-family: 'Inter', sans-serif;
+  scroll-behavior: smooth;
+}
+
+/* === Liens === */
+a {
+  color: rgb(var(--accent));
+  text-decoration: none;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+a:hover {
+  color: rgb(var(--accent-2));
+  opacity: 0.9;
+}
+
+/* === Sélecteurs utiles === */
+button {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.03);
+}
+
+/* === Effet global de fluidité === */
+* {
+  @apply transition-colors duration-200 ease-in-out;
 }
