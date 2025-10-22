@@ -1,118 +1,96 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Link from "next/link";
+import { motion } from "framer-motion";
+import { BarChart3, Users, ClipboardList, TrendingUp } from "lucide-react";
 
 export default function HomePage() {
   return (
-    <main className="relative flex flex-col items-center justify-center overflow-hidden">
-      {/* Dégradé abstrait d’arrière-plan */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10 bg-gradient-to-br from-orange-100 via-white to-rose-50"
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-[600px] w-[600px] rounded-full bg-orange-200/60 blur-3xl"
-      />
-
-      {/* HERO */}
-      <section className="text-center pt-32 pb-28 px-6 md:pt-44 md:pb-40 max-w-4xl">
-        <motion.p
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.1 }}
-          className="uppercase tracking-[0.2em] text-orange-600 font-medium mb-4"
-        >
+    <div className="flex flex-col items-center text-center px-6">
+      {/* === HERO SECTION === */}
+      <section className="max-w-3xl pt-32 pb-20">
+        <p className="text-sm font-medium text-orange-600 uppercase tracking-wide">
           Plateforme interne Orpi
-        </motion.p>
+        </p>
+        <h1 className="mt-4 text-4xl font-bold text-gray-900 sm:text-5xl leading-tight">
+          Centralisez vos synergies. <br />
+          <span className="text-orange-600">Simplifiez vos échanges.</span>
+        </h1>
+        <p className="mt-4 text-gray-600 text-base sm:text-lg leading-relaxed">
+          Synergies est votre hub collaboratif intelligent — centralisez vos recommandations,
+          suivez vos actions entre services et boostez la performance collective grâce à l’IA.
+        </p>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="text-5xl md:text-6xl font-extrabold leading-tight mb-6 text-gray-900"
-        >
-          Centralisez vos{" "}
-          <span className="bg-gradient-to-r from-orange-600 to-pink-500 bg-clip-text text-transparent">
-            synergies.
-          </span>
-          <br />
-          Simplifiez vos échanges.
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          className="text-lg md:text-xl text-gray-600 mb-12 leading-relaxed"
-        >
-          Une plateforme unique pour fluidifier la communication entre services,
-          suivre vos recommandations et booster la performance collective grâce à l’IA.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="flex flex-wrap justify-center gap-5"
-        >
+        {/* CTA Buttons */}
+        <div className="mt-8 flex justify-center gap-4">
           <Link
             href="/reco/new"
-            className="rounded-xl bg-orange-600 px-8 py-4 text-white text-lg font-semibold shadow-lg shadow-orange-600/20 transition hover:scale-[1.03] hover:bg-orange-500"
+            className="rounded-lg bg-orange-600 text-white px-6 py-3 text-sm font-semibold shadow-sm hover:bg-orange-700 transition"
           >
             Nouvelle recommandation
           </Link>
           <Link
             href="/inbox"
-            className="rounded-xl border-2 border-orange-600 text-orange-600 px-8 py-4 text-lg font-semibold hover:bg-orange-50 transition"
+            className="rounded-lg border border-orange-600 text-orange-600 px-6 py-3 text-sm font-semibold hover:bg-orange-50 transition"
           >
             Voir mes synergies
           </Link>
+        </div>
+      </section>
+
+      {/* === APP PREVIEW SECTION === */}
+      <section className="max-w-5xl w-full grid md:grid-cols-3 gap-6 text-left mt-10">
+        {/* Carte 1 */}
+        <motion.div
+          whileHover={{ scale: 1.02 }}
+          className="bg-white rounded-2xl shadow-md p-6 border border-orange-100"
+        >
+          <div className="flex items-center gap-3 mb-4">
+            <ClipboardList className="text-orange-600" size={22} />
+            <h3 className="text-lg font-semibold text-gray-900">Activité récente</h3>
+          </div>
+          <p className="text-gray-600 text-sm mb-2">12 recommandations traitées cette semaine</p>
+          <p className="text-orange-600 text-sm font-medium">+3 vs semaine dernière</p>
+        </motion.div>
+
+        {/* Carte 2 */}
+        <motion.div
+          whileHover={{ scale: 1.02 }}
+          className="bg-white rounded-2xl shadow-md p-6 border border-orange-100"
+        >
+          <div className="flex items-center gap-3 mb-4">
+            <TrendingUp className="text-orange-600" size={22} />
+            <h3 className="text-lg font-semibold text-gray-900">Taux de transformation</h3>
+          </div>
+          <p className="text-gray-600 text-sm mb-2">
+            68% de synergies converties en opportunités concrètes
+          </p>
+          <div className="mt-3 w-full bg-orange-100 h-2 rounded-full">
+            <div className="bg-orange-600 h-2 rounded-full w-2/3"></div>
+          </div>
+        </motion.div>
+
+        {/* Carte 3 */}
+        <motion.div
+          whileHover={{ scale: 1.02 }}
+          className="bg-white rounded-2xl shadow-md p-6 border border-orange-100"
+        >
+          <div className="flex items-center gap-3 mb-4">
+            <Users className="text-orange-600" size={22} />
+            <h3 className="text-lg font-semibold text-gray-900">Top collaborateurs</h3>
+          </div>
+          <ul className="text-gray-600 text-sm space-y-1">
+            <li>• Laurie Blondeau</li>
+            <li>• Olivier Schiapparelli</li>
+            <li>• Damien Montastier</li>
+          </ul>
         </motion.div>
       </section>
 
-      {/* STAT CARDS */}
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mb-32 px-6">
-        <Card
-          title="Activité récente"
-          text="12 recommandations traitées cette semaine."
-          gradient="from-orange-500 to-pink-400"
-        />
-        <Card
-          title="Taux de transformation"
-          text="68% de synergies converties en opportunités concrètes."
-          gradient="from-violet-500 to-indigo-400"
-        />
-        <Card
-          title="Top collaborateurs"
-          text="Laurie Blondeau, Olivier Schiapparelli, Damien Montastier"
-          gradient="from-pink-500 to-rose-400"
-        />
+      {/* === FOOTER MINI STATS === */}
+      <section className="mt-20 text-sm text-gray-500">
+        <p>© 2025 Synergies — V2 — Design SaaS interne Orpi</p>
       </section>
-    </main>
-  );
-}
-
-function Card({
-  title,
-  text,
-  gradient,
-}: {
-  title: string;
-  text: string;
-  gradient: string;
-}) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.4 }}
-      transition={{ duration: 0.5 }}
-      className={`rounded-3xl bg-gradient-to-br ${gradient} text-white p-8 shadow-xl hover:scale-[1.02] transition-transform`}
-    >
-      <h3 className="text-2xl font-bold mb-3">{title}</h3>
-      <p className="opacity-90 text-base leading-relaxed">{text}</p>
-    </motion.div>
+    </div>
   );
 }
