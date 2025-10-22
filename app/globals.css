@@ -2,10 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ========= Design tokens ========= */
+/* Palette claire façon SaaS */
 :root {
-  --bg: 10 13 24; /* bleu nuit élégant */
-  --fg: 240 240 245; /* gris clair doux */
+  --bg: 250 247 242; /* beige clair */
+  --fg: 30 30 40;    /* texte gris foncé */
+  --accent: 234 88 12; /* orange HubSpot */
 }
 
 html, body {
@@ -16,51 +17,42 @@ html, body {
   scroll-behavior: smooth;
 }
 
-/* ========= Global layout fixes ========= */
-body {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: center; /* 👈 force le centrage du texte globalement */
+/* Lissage typographique */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Tous les liens par défaut */
-a {
-  color: #ec4899; /* rose Tailwind 500 */
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-a:hover {
-  color: #f472b6;
-}
-
-/* Titres et paragraphes */
-h1, h2, h3, h4 {
-  font-weight: 700;
-  margin: 0;
-}
-p {
-  margin: 0;
-}
-
-/* Conteneurs centrés */
-main, section {
+/* Conteneur centré */
+main {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Petits ajustements visuels */
-footer {
-  text-align: center;
-  opacity: 0.7;
-  font-size: 0.85rem;
+/* Boutons */
+.btn-primary {
+  background-color: rgb(var(--accent));
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+.btn-primary:hover {
+  background-color: rgb(249, 115, 22);
 }
 
-/* Lissage du rendu */
-* {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.btn-secondary {
+  border: 2px solid rgb(var(--accent));
+  color: rgb(var(--accent));
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+.btn-secondary:hover {
+  background-color: rgb(var(--accent));
+  color: white;
 }
